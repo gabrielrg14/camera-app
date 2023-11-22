@@ -1,8 +1,6 @@
 import styled from 'styled-components/native'
 import { Camera } from "expo-camera";
 
-import FunctionButton from "../FunctionButton";
-
 export const Wrapper = styled.SafeAreaView`
   flex: 1;
   align-items: center;
@@ -15,7 +13,7 @@ export const ExpoCamera = styled(Camera)`
 `;
 
 export const ButtonsView = styled.View`
-flex: 1;
+  flex: 1;
   position: absolute;
   bottom: 25px;
   width: 100%;
@@ -29,13 +27,3 @@ export const RoundedPhoto = styled.Image`
   width: 48px;
   border-radius: 50px;
 `;
-
-export const PhotoButton = styled(FunctionButton)``;
-
-export const CameraButton = styled(FunctionButton)`
-  height: 72px;
-  width: 72px;
-  background-color: #18a330;
-`;
-
-export const FlipButton = styled(FunctionButton)``;

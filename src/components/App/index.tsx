@@ -3,9 +3,10 @@ import { Text } from "react-native";
 import { Camera, CameraType } from "expo-camera";
 import { Ionicons } from "@expo/vector-icons";
 
-import * as S from "./styles";
-
+import FunctionButton from "../FunctionButton";
 import PhotoModal from "../PhotoModal";
+
+import * as S from "./styles";
 
 const App = () => {
   const cameraRef = useRef<Camera>(null);
@@ -45,24 +46,34 @@ const App = () => {
         <>
           <S.ExpoCamera type={cameraType} ref={cameraRef} />
           <S.ButtonsView>
-            <S.PhotoButton
-              onPress={() => setShowPhotoModal(true)}
+            <FunctionButton
+              size={48}
+              background="#161817"
               disabled={!photoCaptured}
+              onPress={() => setShowPhotoModal(true)}
             >
               {photoCaptured ? (
                 <S.RoundedPhoto source={{ uri: photoCaptured }} />
               ) : (
                 <Ionicons name="images" size={32} color="#FFF" />
               )}
-            </S.PhotoButton>
+            </FunctionButton>
 
-            <S.CameraButton onPress={handleTakePicture}>
+            <FunctionButton
+              size={72}
+              background="#18a330"
+              onPress={handleTakePicture}
+            >
               <Ionicons name="camera" size={48} color="#FFF" />
-            </S.CameraButton>
+            </FunctionButton>
 
-            <S.FlipButton onPress={toggleCameraType}>
+            <FunctionButton
+              size={48}
+              background="#161817"
+              onPress={toggleCameraType}
+            >
               <Ionicons name="camera-reverse" size={32} color="#FFF" />
-            </S.FlipButton>
+            </FunctionButton>
           </S.ButtonsView>
         </>
       )}

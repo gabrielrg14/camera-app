@@ -1,10 +1,12 @@
 import styled from 'styled-components/native'
 
-export const FunctionButton = styled.TouchableOpacity`
+import { FunctionButtonStyles } from '../../@types/FunctionButtonStyles';
+
+export const FunctionButton = styled.TouchableOpacity<FunctionButtonStyles>`
   align-items: center;
   justify-content: center;
-  height: 48px;
-  width: 48px;
   border-radius: 50px;
-  background-color: #161817
+  height: ${props => props.size ? `${props.size}px` : "24px"};
+  width: ${props => props.size ? `${props.size}px` : "24px"};
+  background-color: ${props => props.background || "#FFF"};
 `;

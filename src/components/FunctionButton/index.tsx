@@ -1,5 +1,7 @@
 import { TouchableOpacityProps } from "react-native";
 
+import { FunctionButtonStyles } from "../../@types/FunctionButtonStyles";
+
 import * as S from "./styles";
 
 type FunctionButtonProps = {
@@ -9,7 +11,7 @@ type FunctionButtonProps = {
 const FunctionButton = ({
   children,
   ...rest
-}: FunctionButtonProps & TouchableOpacityProps) => {
+}: FunctionButtonProps & FunctionButtonStyles & TouchableOpacityProps) => {
   return <S.FunctionButton {...rest}>{children}</S.FunctionButton>;
 };
 

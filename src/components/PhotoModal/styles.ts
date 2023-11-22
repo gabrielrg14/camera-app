@@ -1,17 +1,17 @@
 import styled from 'styled-components/native'
 
-import FunctionButton from "../FunctionButton";
-
 export const Content = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 10px;
   padding: 20px;
 `;
 
-export const CloseButton = styled(FunctionButton)`
-  background-color: #FF0000;
+export const ButtonsView = styled.View`
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
 `;
 
 export const Photo = styled.Image`
