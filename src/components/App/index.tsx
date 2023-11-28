@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { Text } from "react-native";
-import { Camera, CameraType } from "expo-camera";
+import { Camera, CameraType, AutoFocus, FlashMode } from "expo-camera";
 import { Ionicons } from "@expo/vector-icons";
 
 import FunctionButton from "../FunctionButton";
@@ -12,6 +12,8 @@ const App = () => {
   const cameraRef = useRef<Camera>(null);
   const [cameraType, setCameraType] = useState(CameraType.back);
   const [cameraPermission, requestPermission] = Camera.useCameraPermissions();
+  const [zoomValue, setZoomValue] = useState(0);
+  const [flashMode, setFlashMode] = useState<"off" | "on" | "torch">("off");
   const [photoCaptured, setPhotoCaptured] = useState<string | null>(null);
   const [showPhotoModal, setShowPhotoModal] = useState(false);
 
@@ -32,6 +34,16 @@ const App = () => {
     }
   };
 
+  const handleCameraZoom = (operation: "decrease" | "increase") => {
+    if (operation === "decrease") setZoomValue(zoomValue - 0.25);
+    if (operation === "increase") setZoomValue(zoomValue + 0.25);
+  };
+
+  const toggleFlashMode = () =>
+    setFlashMode(
+      flashMode === "off" ? "on" : flashMode === "on" ? "torch" : "off"
+    );
+
   const toggleCameraType = () => {
     setCameraType((current) =>
       current === CameraType.back ? CameraType.front : CameraType.back
@@ -44,7 +56,50 @@ const App = () => {
         <Text>Please grant camera usage permission to use the app</Text>
       ) : (
         <>
-          <S.ExpoCamera type={cameraType} ref={cameraRef} />
+          <S.ButtonsView>
+            <FunctionButton
+              size={48}
+              background="#161817"
+              disabled={zoomValue <= 0}
+              onPress={() => handleCameraZoom("decrease")}
+            >
+              <Ionicons
+                name="remove"
+                size={32}
+                color={zoomValue <= 0 ? "#71797E" : "#FFF"}
+              />
+            </FunctionButton>
+            <FunctionButton
+              size={48}
+              background="#161817"
+              onPress={() => toggleFlashMode()}
+            >
+              <Ionicons
+                name={flashMode === "off" ? "flash-off" : "flash"}
+                size={32}
+                color={flashMode === "torch" ? "#FFEA00" : "#FFF"}
+              />
+            </FunctionButton>
+            <FunctionButton
+              size={48}
+              background="#161817"
+              disabled={zoomValue >= 1}
+              onPress={() => handleCameraZoom("increase")}
+            >
+              <Ionicons
+                name="add"
+                size={32}
+                color={zoomValue >= 1 ? "#71797E" : "#FFF"}
+              />
+            </FunctionButton>
+          </S.ButtonsView>
+          <S.ExpoCamera
+            type={cameraType}
+            ref={cameraRef}
+            autoFocus={AutoFocus.auto}
+            zoom={zoomValue}
+            flashMode={FlashMode[flashMode]}
+          />
           <S.ButtonsView>
             <FunctionButton
               size={48}

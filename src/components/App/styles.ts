@@ -1,8 +1,10 @@
 import styled from 'styled-components/native'
+import { Platform, StatusBar } from 'react-native';
 import { Camera } from "expo-camera";
 
 export const Wrapper = styled.SafeAreaView`
   flex: 1;
+  padding-top: ${Platform.OS === "android" ? `${StatusBar.currentHeight}px`: 0};
   align-items: center;
   justify-content: center;
 `;
@@ -14,8 +16,6 @@ export const ExpoCamera = styled(Camera)`
 
 export const ButtonsView = styled.View`
   flex: 1;
-  position: absolute;
-  bottom: 25px;
   width: 100%;
   flex-direction: row;
   justify-content: space-around;
