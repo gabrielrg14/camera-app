@@ -3,8 +3,8 @@ import { Text } from "react-native";
 import { Camera, CameraType, AutoFocus, FlashMode } from "expo-camera";
 import { Ionicons } from "@expo/vector-icons";
 
-import FunctionButton from "../FunctionButton";
-import PhotoModal from "../PhotoModal";
+import FunctionButton from "../components/FunctionButton";
+import PhotoModal from "../components/PhotoModal";
 
 import * as S from "./styles";
 
