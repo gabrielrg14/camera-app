@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "camera-app",
+    "name": "Camera",
     "slug": "camera-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -23,9 +23,6 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.gabrielrg14.cameraapp"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {

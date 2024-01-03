@@ -12,7 +12,13 @@ const FunctionButton = ({
   children,
   ...rest
 }: FunctionButtonProps & FunctionButtonStyles & TouchableOpacityProps) => {
-  return <S.FunctionButton {...rest}>{children}</S.FunctionButton>;
+  return (
+    <S.FunctionButton
+      accessibilityRole="button"
+      {...rest}
+    >
+      {children}
+    </S.FunctionButton>)
 };
 
 export default FunctionButton;

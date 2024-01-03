@@ -50,6 +50,7 @@ const PhotoModal = ({ show, close, photoUri }: PhotoModalProps) => {
 
   return (
     <Modal
+      testID="photoModal"
       visible={show}
       onDismiss={close}
       animationType="slide"
@@ -57,8 +58,8 @@ const PhotoModal = ({ show, close, photoUri }: PhotoModalProps) => {
     >
       <S.Content>
         <S.ButtonsView>
-          <FunctionButton size={48} background="#FF0000" onPress={close}>
-            <Ionicons name="close" size={32} color="#FFF" />
+          <FunctionButton testID="closeButton" size={48} background="#FF0000" onPress={close}>
+            <Ionicons testID="buttonIcon" name="close" size={32} color="#FFF" />
           </FunctionButton>
 
           <FunctionButton
@@ -66,7 +67,7 @@ const PhotoModal = ({ show, close, photoUri }: PhotoModalProps) => {
             background="#1877f2"
             onPress={handleSharePhoto}
           >
-            <Ionicons name="share-social" size={32} color="#FFF" />
+            <Ionicons testID="buttonIcon" name="share-social" size={32} color="#FFF" />
           </FunctionButton>
 
           <FunctionButton
@@ -74,7 +75,7 @@ const PhotoModal = ({ show, close, photoUri }: PhotoModalProps) => {
             background="#161817"
             onPress={handleSavePhoto}
           >
-            <Ionicons name="cloud-download" size={32} color="#FFF" />
+            <Ionicons testID="buttonIcon" name="cloud-download" size={32} color="#FFF" />
           </FunctionButton>
         </S.ButtonsView>
         <S.Photo source={{ uri: photoUri }} />
