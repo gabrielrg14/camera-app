@@ -1,7 +1,7 @@
 import { render, fireEvent } from "@testing-library/react-native"
+import { Text } from "react-native";
 
 import FunctionButton from "."
-import { Text } from "react-native";
 
 describe("<FunctionButton />", () => {
   describe("the children prop was passed", () => {

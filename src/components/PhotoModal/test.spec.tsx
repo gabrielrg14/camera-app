@@ -2,9 +2,9 @@ import { render, fireEvent } from "@testing-library/react-native"
 
 import PhotoModal from "."
 
-describe("<PhotoModal />", () => {
-  const closeMock = jest.fn()
+const closeMock = jest.fn()
 
+describe("<PhotoModal />", () => {
   it("should render the three functionality buttons with their icons", async () => {
     const { findAllByRole, findAllByTestId } = render(<PhotoModal show={true} close={closeMock} photoUri={""} />)
 
