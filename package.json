@@ -2,6 +2,26 @@
   "name": "camera-app",
   "version": "1.0.0",
   "main": "index.ts",
+  "description": "A simple Mobile App to capture a photo, display it, share it and save it to the media library.",
+  "author": "Gabriel Rapucci Gonzalez <gabrielrapuccigonzalez14@hotmail.com> (https://gabrielrapucci.com.br)",
+  "homepage": "https://github.com/gabrielrg14/camera-app#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gabrielrg14/camera-app"
+  },
+  "bugs": {
+    "url": "https://github.com/gabrielrg14/camera-app/issues"
+  },
+  "keywords": [
+    "react-native",
+    "expo",
+    "camera",
+    "camera-app",
+    "mobile",
+    "front-end",
+    "portfolio"
+  ],
+  "license": "MIT",
   "scripts": {
     "start": "expo start",
     "test": "jest",
